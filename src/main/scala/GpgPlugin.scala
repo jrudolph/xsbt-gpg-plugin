@@ -107,6 +107,7 @@ object GpgPlugin extends Plugin {
 
   /* Reads the passphrase from the console. */
   private[this] def readPassphrase(): Array[Char] = System.out.synchronized {
+    import sbt.Sbt110Compatibility._
     (SimpleReader.readLine("Please enter your PGP passphrase> ", Some('*')) getOrElse error("No password provided.")).toCharArray
   }
   
